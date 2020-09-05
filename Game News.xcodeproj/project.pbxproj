@@ -7,23 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A42010D2503AAA300F97D67 /* TopNewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A42010C2503AAA300F97D67 /* TopNewsCell.swift */; };
 		5AD246D3250268E500934848 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD246D2250268E500934848 /* AppDelegate.swift */; };
 		5AD246D5250268E500934848 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD246D4250268E500934848 /* SceneDelegate.swift */; };
-		5AD246D7250268E500934848 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD246D6250268E500934848 /* ViewController.swift */; };
 		5AD246DA250268E500934848 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AD246D8250268E500934848 /* Main.storyboard */; };
 		5AD246DC250268E600934848 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AD246DB250268E600934848 /* Assets.xcassets */; };
 		5AD246DF250268E600934848 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AD246DD250268E600934848 /* LaunchScreen.storyboard */; };
+		5AD246EC250284AE00934848 /* customTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD246EB250284AE00934848 /* customTabBarItem.swift */; };
+		5AD246EE25028D0400934848 /* NewsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD246ED25028D0400934848 /* NewsVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5A42010C2503AAA300F97D67 /* TopNewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopNewsCell.swift; sourceTree = "<group>"; };
 		5AD246CF250268E500934848 /* Game News.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Game News.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AD246D2250268E500934848 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5AD246D4250268E500934848 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5AD246D6250268E500934848 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5AD246D9250268E500934848 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5AD246DB250268E600934848 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5AD246DE250268E600934848 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5AD246E0250268E600934848 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5AD246EB250284AE00934848 /* customTabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customTabBarItem.swift; sourceTree = "<group>"; };
+		5AD246ED25028D0400934848 /* NewsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +60,41 @@
 		5AD246D1250268E500934848 /* Game News */ = {
 			isa = PBXGroup;
 			children = (
+				5AD246E82502690300934848 /* Model */,
+				5AD246E7250268FE00934848 /* View */,
+				5AD246E6250268ED00934848 /* Controller */,
 				5AD246D2250268E500934848 /* AppDelegate.swift */,
 				5AD246D4250268E500934848 /* SceneDelegate.swift */,
-				5AD246D6250268E500934848 /* ViewController.swift */,
 				5AD246D8250268E500934848 /* Main.storyboard */,
 				5AD246DB250268E600934848 /* Assets.xcassets */,
 				5AD246DD250268E600934848 /* LaunchScreen.storyboard */,
 				5AD246E0250268E600934848 /* Info.plist */,
 			);
 			path = "Game News";
+			sourceTree = "<group>";
+		};
+		5AD246E6250268ED00934848 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5AD246ED25028D0400934848 /* NewsVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		5AD246E7250268FE00934848 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5AD246EB250284AE00934848 /* customTabBarItem.swift */,
+				5A42010C2503AAA300F97D67 /* TopNewsCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5AD246E82502690300934848 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +168,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5AD246D7250268E500934848 /* ViewController.swift in Sources */,
 				5AD246D3250268E500934848 /* AppDelegate.swift in Sources */,
+				5A42010D2503AAA300F97D67 /* TopNewsCell.swift in Sources */,
 				5AD246D5250268E500934848 /* SceneDelegate.swift in Sources */,
+				5AD246EC250284AE00934848 /* customTabBarItem.swift in Sources */,
+				5AD246EE25028D0400934848 /* NewsVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
