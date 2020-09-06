@@ -1,5 +1,5 @@
 //
-//  newsTableCell.swift
+//  NewsCell.swift
 //  Game News
 //
 //  Created by Саша on 06.09.2020.
@@ -8,8 +8,8 @@
 
 import UIKit
 
-class newsTableCell: UITableViewCell {
-    
+class NewsCell: UITableViewCell {
+
     @IBOutlet weak var newsImg: UIImageView!
     @IBOutlet weak var newsTitle: UILabel!
     @IBOutlet weak var newsSource: UILabel!
