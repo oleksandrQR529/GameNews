@@ -33,11 +33,11 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tabBar>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="white" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="MEh-cd-8ci">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" indicatorStyle="white" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="MEh-cd-8ci">
                                 <rect key="frame" x="0.0" y="137" width="414" height="200"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="iLy-bg-8Yo"/>
+                                    <constraint firstAttribute="height" constant="200" id="UJm-D0-qKk"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="n88-5Q-4NW">
                                     <size key="itemSize" width="404" height="195"/>
@@ -46,7 +46,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="topNewsCell" id="5i8-9j-MVT" customClass="TopNewsCell" customModule="Game_News" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="topNewsCollectionCell" id="5i8-9j-MVT" customClass="TopNewsCell" customModule="Game_News" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="2.5" width="414" height="195"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="x4N-ko-PNz">
@@ -102,16 +102,73 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YGy-Q8-OpC">
+                                <rect key="frame" x="0.0" y="337" width="414" height="559"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="newsTableCell" rowHeight="195" id="Hku-Nr-f2K">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="195"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Hku-Nr-f2K" id="BRP-1N-5z3">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="195"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="digital" translatesAutoresizingMaskIntoConstraints="NO" id="JdH-dS-G0X">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="195"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mersedes-Benz and Laureus broadening their worldwide involvement" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wia-eS-VWy">
+                                                    <rect key="frame" x="8" y="70" width="406" height="55"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="1f8-Pr-kvA">
+                                                    <rect key="frame" x="8" y="130" width="236" height="20.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Emercedesbenz.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lCp-aN-vnP">
+                                                            <rect key="frame" x="0.0" y="0.0" width="141.5" height="20.5"/>
+                                                            <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="15"/>
+                                                            <color key="textColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- 2 hours ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hjL-e6-fI9">
+                                                            <rect key="frame" x="146.5" y="0.0" width="89.5" height="20.5"/>
+                                                            <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="15"/>
+                                                            <color key="textColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Wia-eS-VWy" secondAttribute="trailing" constant="-20" id="0B1-5q-YoU"/>
+                                                <constraint firstAttribute="bottom" secondItem="JdH-dS-G0X" secondAttribute="bottom" id="70g-kB-7Cd"/>
+                                                <constraint firstItem="JdH-dS-G0X" firstAttribute="leading" secondItem="BRP-1N-5z3" secondAttribute="leading" id="Rro-kc-2WY"/>
+                                                <constraint firstItem="JdH-dS-G0X" firstAttribute="top" secondItem="BRP-1N-5z3" secondAttribute="top" id="SG5-Cx-OP2"/>
+                                                <constraint firstItem="1f8-Pr-kvA" firstAttribute="top" secondItem="Wia-eS-VWy" secondAttribute="bottom" constant="5" id="WLU-uz-kvj"/>
+                                                <constraint firstItem="Wia-eS-VWy" firstAttribute="centerY" secondItem="BRP-1N-5z3" secondAttribute="centerY" id="drm-JQ-QeC"/>
+                                                <constraint firstItem="Wia-eS-VWy" firstAttribute="leading" secondItem="BRP-1N-5z3" secondAttribute="leading" constant="8" id="kyi-tt-10t"/>
+                                                <constraint firstAttribute="trailing" secondItem="JdH-dS-G0X" secondAttribute="trailing" id="mIr-Zi-T9F"/>
+                                                <constraint firstItem="1f8-Pr-kvA" firstAttribute="leading" secondItem="BRP-1N-5z3" secondAttribute="leading" constant="8" id="mM5-wa-h2l"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" red="0.074509803921568626" green="0.074509803921568626" blue="0.074509803921568626" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Ogk-Qc-qov" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="1tN-BU-h3K"/>
                             <constraint firstItem="Ogk-Qc-qov" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="5Ah-Zv-Lgs"/>
+                            <constraint firstItem="YGy-Q8-OpC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="BzK-ok-xjg"/>
+                            <constraint firstItem="YGy-Q8-OpC" firstAttribute="top" secondItem="MEh-cd-8ci" secondAttribute="bottom" id="JG6-be-AWn"/>
                             <constraint firstItem="MEh-cd-8ci" firstAttribute="top" secondItem="Ogk-Qc-qov" secondAttribute="bottom" id="XnE-ci-M9G"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YGy-Q8-OpC" secondAttribute="trailing" id="hTC-AF-BUu"/>
                             <constraint firstItem="Ogk-Qc-qov" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ibg-zs-W6L"/>
                             <constraint firstItem="MEh-cd-8ci" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="mTt-la-Aiq"/>
                             <constraint firstItem="MEh-cd-8ci" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="mVL-Kg-ieL"/>
+                            <constraint firstAttribute="bottom" secondItem="YGy-Q8-OpC" secondAttribute="bottom" id="pO4-il-uUp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -126,6 +183,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="newsTable" destination="YGy-Q8-OpC" id="CvH-KO-3T0"/>
                         <outlet property="topNewsCollection" destination="MEh-cd-8ci" id="aBO-vj-GdQ"/>
                     </connections>
                 </viewController>

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5A42010D2503AAA300F97D67 /* TopNewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A42010C2503AAA300F97D67 /* TopNewsCell.swift */; };
+		5A8501662505328800781460 /* newsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8501652505328800781460 /* newsTableCell.swift */; };
 		5AD246D3250268E500934848 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD246D2250268E500934848 /* AppDelegate.swift */; };
 		5AD246D5250268E500934848 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD246D4250268E500934848 /* SceneDelegate.swift */; };
 		5AD246DA250268E500934848 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AD246D8250268E500934848 /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		5A42010C2503AAA300F97D67 /* TopNewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopNewsCell.swift; sourceTree = "<group>"; };
+		5A8501652505328800781460 /* newsTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newsTableCell.swift; sourceTree = "<group>"; };
 		5AD246CF250268E500934848 /* Game News.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Game News.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AD246D2250268E500934848 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5AD246D4250268E500934848 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 			children = (
 				5AD246EB250284AE00934848 /* customTabBarItem.swift */,
 				5A42010C2503AAA300F97D67 /* TopNewsCell.swift */,
+				5A8501652505328800781460 /* newsTableCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -169,6 +172,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5AD246D3250268E500934848 /* AppDelegate.swift in Sources */,
+				5A8501662505328800781460 /* newsTableCell.swift in Sources */,
 				5A42010D2503AAA300F97D67 /* TopNewsCell.swift in Sources */,
 				5AD246D5250268E500934848 /* SceneDelegate.swift in Sources */,
 				5AD246EC250284AE00934848 /* customTabBarItem.swift in Sources */,
