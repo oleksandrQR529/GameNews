@@ -22,7 +22,6 @@ class DataService {
                 let news = try JSONDecoder().decode([News].self, from: data)
                 self.data = news
             }catch{
-                print(<#T##items: Any...##Any#>)
             }
         }
     }

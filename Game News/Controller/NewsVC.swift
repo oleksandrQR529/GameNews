@@ -64,7 +64,10 @@ extension NewsVC: UITableViewDataSource, UITableViewDelegate {
 //        }
         let news = DataService.instance.fetchData()
         if let cell = tableView.dequeueReusableCell(withIdentifier: "newsCell", for: indexPath) as? NewsCell {
-            cell.updateCell(img: <#T##UIImage#>, title: news[indexPath.row].title, source: news[indexPath.row].click_url, publicationDate: news[indexPath.row].time)
+            cell.updateCell(img: UIImage(named: "digital.png")!, title: news[indexPath.row].title, source: news[indexPath.row].click_url, publicationDate: news[indexPath.row].time)
+            return cell
+        }else {
+            return NewsCell()
         }
     }
 }
