@@ -40,73 +40,6 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="195"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" indicatorStyle="white" dataMode="prototypes" id="MEh-cd-8ci">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="n88-5Q-4NW">
-                                                <size key="itemSize" width="404" height="195"/>
-                                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                            </collectionViewFlowLayout>
-                                            <cells>
-                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="topNewsCell" id="5i8-9j-MVT" customClass="TopNewsCell" customModule="Game_News" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="2.5" width="414" height="195"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="x4N-ko-PNz">
-                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="195"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="digital" translatesAutoresizingMaskIntoConstraints="NO" id="JvM-V9-J0C">
-                                                                <rect key="frame" x="0.0" y="0.0" width="414" height="195"/>
-                                                            </imageView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mersedes-Benz and Laureus broadening their worldwide involvement" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r9v-wu-4yN">
-                                                                <rect key="frame" x="8" y="70" width="378" height="55"/>
-                                                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
-                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="2Tc-Ic-Aza">
-                                                                <rect key="frame" x="8" y="130" width="236" height="20.5"/>
-                                                                <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Emercedesbenz.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sEe-VN-2cd">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="141.5" height="20.5"/>
-                                                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="15"/>
-                                                                        <color key="textColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                        <nil key="highlightedColor"/>
-                                                                    </label>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- 2 hours ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hbh-Bb-uBR">
-                                                                        <rect key="frame" x="146.5" y="0.0" width="89.5" height="20.5"/>
-                                                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="15"/>
-                                                                        <color key="textColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                        <nil key="highlightedColor"/>
-                                                                    </label>
-                                                                </subviews>
-                                                            </stackView>
-                                                        </subviews>
-                                                        <constraints>
-                                                            <constraint firstItem="2Tc-Ic-Aza" firstAttribute="leading" secondItem="x4N-ko-PNz" secondAttribute="leadingMargin" id="0u2-bH-rKw"/>
-                                                            <constraint firstAttribute="trailing" secondItem="JvM-V9-J0C" secondAttribute="trailing" id="4wG-ZZ-In3"/>
-                                                            <constraint firstItem="JvM-V9-J0C" firstAttribute="leading" secondItem="x4N-ko-PNz" secondAttribute="leading" id="LBR-Wy-Ihs"/>
-                                                            <constraint firstItem="2Tc-Ic-Aza" firstAttribute="top" secondItem="r9v-wu-4yN" secondAttribute="bottom" constant="5" id="NwZ-hv-0o1"/>
-                                                            <constraint firstItem="r9v-wu-4yN" firstAttribute="centerY" secondItem="x4N-ko-PNz" secondAttribute="centerY" id="SCD-gP-xDJ"/>
-                                                            <constraint firstAttribute="trailingMargin" secondItem="r9v-wu-4yN" secondAttribute="trailing" constant="20" id="SXX-Kv-uQL"/>
-                                                            <constraint firstItem="JvM-V9-J0C" firstAttribute="top" secondItem="x4N-ko-PNz" secondAttribute="top" id="aQU-iA-qXK"/>
-                                                            <constraint firstAttribute="bottom" secondItem="JvM-V9-J0C" secondAttribute="bottom" id="uQL-eA-DOQ"/>
-                                                            <constraint firstItem="r9v-wu-4yN" firstAttribute="leading" secondItem="x4N-ko-PNz" secondAttribute="leadingMargin" id="zik-Cu-Wf8"/>
-                                                        </constraints>
-                                                    </collectionViewCellContentView>
-                                                    <size key="customSize" width="414" height="195"/>
-                                                    <connections>
-                                                        <outlet property="topNewsImg" destination="JvM-V9-J0C" id="c2c-71-UMt"/>
-                                                        <outlet property="topNewsPublicationDate" destination="Hbh-Bb-uBR" id="UZp-Jw-hZg"/>
-                                                        <outlet property="topNewsSource" destination="sEe-VN-2cd" id="EWV-pu-mlv"/>
-                                                        <outlet property="topNewsTitle" destination="r9v-wu-4yN" id="2gr-sh-OZG"/>
-                                                    </connections>
-                                                </collectionViewCell>
-                                            </cells>
-                                        </collectionView>
                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="D8G-F9-I49">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="195"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -181,11 +114,6 @@
                                         <constraint firstAttribute="bottom" secondItem="D8G-F9-I49" secondAttribute="bottom" id="Oku-1l-5gO"/>
                                         <constraint firstItem="D8G-F9-I49" firstAttribute="top" secondItem="EB9-hY-2Vv" secondAttribute="top" id="o94-W9-Uvi"/>
                                     </constraints>
-                                    <variation key="default">
-                                        <mask key="subviews">
-                                            <exclude reference="MEh-cd-8ci"/>
-                                        </mask>
-                                    </variation>
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="newsCell" id="Hku-Nr-f2K" customClass="NewsCell" customModule="Game_News" customModuleProvider="target">

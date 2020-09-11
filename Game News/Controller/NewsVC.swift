@@ -16,8 +16,8 @@ class NewsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        DataService.instance.loadData(dataUrl: "http://188.40.167.45:3001/")
         initUI()
+        DataService.instance.loadData(dataUrl: "http://188.40.167.45:3001/", view: newsTable)
     }
     
     func initUI() {
@@ -56,15 +56,9 @@ extension NewsVC: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        if let cell = tableView.dequeueReusableCell(withIdentifier: "newsCell", for: indexPath) as? NewsCell {
-//            cell.updateCell(img: UIImage(named: "digital.png")!, title: "Mersedes-Benz and Laureus broadening their worldwide involvement", source: "Apple.com", publicationDate: "- 2 hours ago")
-//            return cell
-//        }else {
-//            return NewsCell()
-//        }
         let news = DataService.instance.fetchData()
         if let cell = tableView.dequeueReusableCell(withIdentifier: "newsCell", for: indexPath) as? NewsCell {
-            cell.updateCell(img: UIImage(named: "digital.png")!, title: news[indexPath.row].title, source: news[indexPath.row].click_url, publicationDate: news[indexPath.row].time)
+            cell.updateCell(img: UIImage(named: "digital.png")!, title: news[indexPath.row].title, source: news[indexPath.row].click_url, publicationDate: "- \(news[indexPath.row].time)")
             return cell
         }else {
             return NewsCell()
