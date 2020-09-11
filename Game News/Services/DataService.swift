@@ -14,7 +14,7 @@ class DataService {
     
     private var data: [News] = []
     
-    func loadData(dataUrl urlString: String, view tableView: UITableView) {
+    func loadData(dataUrl urlString: String, view: UITableView) {  //add support colleciton view, or BETTER, reload view in another way
         guard let url = URL(string: urlString) else { return }
 
         URLSession.shared.dataTask(with: url) { data, _, err in
@@ -28,7 +28,7 @@ class DataService {
                 do{
                     let news = try JSONDecoder().decode([News].self, from: data)
                     self.data = news
-                    tableView.reloadData()
+                    view.reloadData()
                 }catch let jsonErr{
                     print("Failed to decode: ", jsonErr)
                 }

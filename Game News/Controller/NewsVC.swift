@@ -52,7 +52,7 @@ extension NewsVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollec
 extension NewsVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return DataService.instance.fetchData().count //news count (must be 5)
+        return DataService.instance.fetchData().count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
