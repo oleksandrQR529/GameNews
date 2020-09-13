@@ -18,6 +18,7 @@ class NewsVC: UIViewController {
         
         initUI()
         DataService.instance.loadData(dataUrl: "http://188.40.167.45:3001/", view: newsTable)
+        DataService.instance.loadData(dataUrl: "http://188.40.167.45:3001/", view: topNewsCollection)
     }
     
     func initUI() {
@@ -32,12 +33,21 @@ class NewsVC: UIViewController {
 extension NewsVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3 //top news count
+        var topNewsCount = 0
+        for news in DataService.instance.fetchData() {
+            if news.top == "0" {
+            }else {
+                topNewsCount += 1
+            }
+        }
+        return topNewsCount
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let news = DataService.instance.fetchData()
+        
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "topNewsCell", for: indexPath) as? TopNewsCell {
-            cell.updateCell(img: UIImage(named: "digital.png")!, title: "Mersedes-Benz and Laureus broadening their worldwide involvement", source: "Apple.com", publicationDate: "- 2 hours ago")
+            cell.updateCell(img: UIImage(named: "digital.png")!, title: news[indexPath.row].title, source: news[indexPath.row].click_url, publicationDate: "- \(news[indexPath.row].time)")
             return cell
         }else {
             return TopNewsCell()
@@ -57,8 +67,12 @@ extension NewsVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let news = DataService.instance.fetchData()
+        
         if let cell = tableView.dequeueReusableCell(withIdentifier: "newsCell", for: indexPath) as? NewsCell {
-            cell.updateCell(img: UIImage(named: "digital.png")!, title: news[indexPath.row].title, source: news[indexPath.row].click_url, publicationDate: "- \(news[indexPath.row].time)")
+            cell.updateCell(title: news[indexPath.row].title, source: news[indexPath.row].click_url, publicationDate: "- \(news[indexPath.row].time)")
+            if news[indexPath.row].img != nil {
+                cell.setImg(urlString: news[indexPath.row].img!)
+            }
             return cell
         }else {
             return NewsCell()
