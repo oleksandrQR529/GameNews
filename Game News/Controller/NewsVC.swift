@@ -27,6 +27,8 @@ class NewsVC: UIViewController {
         
         newsTable.dataSource = self
         newsTable.delegate = self
+        
+        newsTable.rowHeight = UITableView.automaticDimension
     }
 }
 
@@ -67,15 +69,21 @@ extension NewsVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let news = DataService.instance.fetchData()
-        
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "newsCell", for: indexPath) as? NewsCell {
-            cell.updateCell(title: news[indexPath.row].title, source: news[indexPath.row].click_url, publicationDate: "- \(news[indexPath.row].time)")
-            if news[indexPath.row].img != nil {
+        if news[indexPath.row].img != nil {
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "newsImgCell", for: indexPath) as? NewsImgCell {
+                cell.updateCell(title: news[indexPath.row].title, source: news[indexPath.row].click_url, publicationDate: "- \(news[indexPath.row].time)")
                 cell.setImg(urlString: news[indexPath.row].img!)
+                return cell
+            }else {
+                return NewsImgCell()
             }
-            return cell
-        }else {
-            return NewsCell()
+        }else{
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "newsCell", for: indexPath) as? NewsCell {
+                cell.updateCell(title: news[indexPath.row].title, source: news[indexPath.row].click_url, publicationDate: "- \(news[indexPath.row].time)")
+                return cell
+            }else {
+                return NewsCell()
+            }
         }
     }
 }
