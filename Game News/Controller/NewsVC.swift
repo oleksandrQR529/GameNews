@@ -13,6 +13,8 @@ class NewsVC: UIViewController {
     @IBOutlet weak var topNewsCollection: UICollectionView!
     @IBOutlet weak var newsTable: UITableView!
     
+    private var topNews: [News] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,16 +42,20 @@ extension NewsVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollec
             if news.top == "0" {
             }else {
                 topNewsCount += 1
+                self.topNews.append(news)
             }
         }
         return topNewsCount
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let news = DataService.instance.fetchData()
-        
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "topNewsCell", for: indexPath) as? TopNewsCell {
-            cell.updateCell(img: UIImage(named: "digital.png")!, title: news[indexPath.row].title, source: news[indexPath.row].click_url, publicationDate: "- \(news[indexPath.row].time)")
+            cell.updateCell(title: topNews[indexPath.row].title, source: topNews[indexPath.row].click_url, publicationDate: "- \(topNews[indexPath.row].time)")
+            if topNews[indexPath.row].img == nil {
+                cell.topNewsImg?.image = nil
+            }else{
+                cell.setImg(urlString: topNews[indexPath.row].img!)
+            }
             return cell
         }else {
             return TopNewsCell()
