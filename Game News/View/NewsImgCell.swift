@@ -15,13 +15,13 @@ class NewsImgCell: UITableViewCell {
     @IBOutlet weak var newsSource: UILabel?
     @IBOutlet weak var newsPublicationDate: UILabel?
     
-    func updateCell(title: String, source: String, publicationDate: String) {
-        newsTitle?.text = title
-        newsSource?.text = source
-        newsPublicationDate?.text = publicationDate
+    func updateCell(news: News) {
+        newsTitle?.text = news.title
+        newsSource?.text = news.click_url
+        newsPublicationDate?.text = "- \(news.time)"
     }
     
-    func setImg(urlString: String) {
-        newsImg?.loadImgFromUrl(urlString: urlString)
+    func setImg(news: News) {
+        newsImg?.loadImgFromUrl(urlString: news.img!)
     }
 }

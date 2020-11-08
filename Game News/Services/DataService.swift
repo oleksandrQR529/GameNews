@@ -21,6 +21,7 @@ class DataService {
             DispatchQueue.main.async {
                 if let err = err {
                     print("Failed to get data from url:", err)
+                    return
                 }
                 
                 guard let data = data else { return }

@@ -15,13 +15,13 @@ class TopNewsCell: UICollectionViewCell {
     @IBOutlet weak var topNewsSource: UILabel?
     @IBOutlet weak var topNewsPublicationDate: UILabel?
     
-    func updateCell(title: String, source: String, publicationDate: String) {
-        topNewsTitle?.text = title
-        topNewsSource?.text = source
-        topNewsPublicationDate?.text = publicationDate
+    func updateCell(news: News) {
+        topNewsTitle?.text = news.title
+        topNewsSource?.text = news.click_url
+        topNewsPublicationDate?.text = "- \(news.time)"
     }
     
-    func setImg(urlString: String) {
-        topNewsImg?.loadImgFromUrl(urlString: urlString)
+    func setImg(news: News) {
+        topNewsImg?.loadImgFromUrl(urlString: news.img!)
     }
 }

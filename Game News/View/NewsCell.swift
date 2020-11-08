@@ -14,9 +14,9 @@ class NewsCell: UITableViewCell {
     @IBOutlet weak var newsSource: UILabel?
     @IBOutlet weak var newsPublicationDate: UILabel?
     
-    func updateCell(title: String, source: String, publicationDate: String) {
-        newsTitle?.text = title
-        newsSource?.text = source
-        newsPublicationDate?.text = publicationDate
+    func updateCell(news: News) {
+        newsTitle?.text = news.title
+        newsSource?.text = news.click_url
+        newsPublicationDate?.text = "- \(news.time)"
     }
 }

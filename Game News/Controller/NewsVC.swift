@@ -50,12 +50,12 @@ extension NewsVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollec
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "topNewsCell", for: indexPath) as? TopNewsCell {
-            cell.updateCell(title: topNews[indexPath.row].title, source: topNews[indexPath.row].click_url, publicationDate: "- \(topNews[indexPath.row].time)")
+            cell.updateCell(news: topNews[indexPath.row])
             
             if topNews[indexPath.row].img == nil {
                 cell.topNewsImg?.image = nil
             }else{
-                cell.setImg(urlString: topNews[indexPath.row].img!)
+                cell.setImg(news: topNews[indexPath.row])
             }
             
             return cell
@@ -80,15 +80,15 @@ extension NewsVC: UITableViewDataSource, UITableViewDelegate {
         
         if news[indexPath.row].img != nil {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "newsImgCell", for: indexPath) as? NewsImgCell {
-                cell.updateCell(title: news[indexPath.row].title, source: news[indexPath.row].click_url, publicationDate: "- \(news[indexPath.row].time)")
-                cell.setImg(urlString: news[indexPath.row].img!)
+                cell.updateCell(news: news[indexPath.row])
+                cell.setImg(news: news[indexPath.row])
                 return cell
             }else {
                 return NewsImgCell()
             }
         }else{
             if let cell = tableView.dequeueReusableCell(withIdentifier: "newsCell", for: indexPath) as? NewsCell {
-                cell.updateCell(title: news[indexPath.row].title, source: news[indexPath.row].click_url, publicationDate: "- \(news[indexPath.row].time)")
+                cell.updateCell(news: news[indexPath.row])
                 return cell
             }else {
                 return NewsCell()
