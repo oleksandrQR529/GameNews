@@ -92,7 +92,6 @@ extension NewsVC: UITableViewDataSource, UITableViewDelegate {
                 return cell
             }else {
                 return NewsCell()
-                //w
             }
         }
     }
