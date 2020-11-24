@@ -9,6 +9,9 @@
 import Foundation
 import UIKit
 
+typealias OnAPISuccess = ([News]) -> Void
+typealias OnAPIError = (String) -> Void
+
 class DataService {
     static let instance = DataService()
     

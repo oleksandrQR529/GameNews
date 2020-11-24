@@ -19,8 +19,9 @@ class NewsVC: UIViewController {
         super.viewDidLoad()
         
         initUI()
-        DataService.instance.loadData(dataUrl: "http://188.40.167.45:3001/", view: newsTable)
-        DataService.instance.loadData(dataUrl: "http://188.40.167.45:3001/", view: topNewsCollection)
+        
+        DataService.instance.loadData(dataUrl: "http://localhost/news.php", view: newsTable)
+        DataService.instance.loadData(dataUrl: "http://localhost/news.php", view: topNewsCollection)
     }
     
     func initUI() {
