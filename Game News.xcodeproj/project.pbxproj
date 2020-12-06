@@ -20,6 +20,7 @@
 		5AD246DF250268E600934848 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AD246DD250268E600934848 /* LaunchScreen.storyboard */; };
 		5AD246EC250284AE00934848 /* customTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD246EB250284AE00934848 /* customTabBarItem.swift */; };
 		5AD246EE25028D0400934848 /* NewsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD246ED25028D0400934848 /* NewsVC.swift */; };
+		8800843B257D376B00FED275 /* ArticleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8800843A257D376A00FED275 /* ArticleVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		5AD246E0250268E600934848 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5AD246EB250284AE00934848 /* customTabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customTabBarItem.swift; sourceTree = "<group>"; };
 		5AD246ED25028D0400934848 /* NewsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsVC.swift; sourceTree = "<group>"; };
+		8800843A257D376A00FED275 /* ArticleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				5AD246ED25028D0400934848 /* NewsVC.swift */,
+				8800843A257D376A00FED275 /* ArticleVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -202,6 +205,7 @@
 				5A2C51BC250E42B000115311 /* ImageViewExt.swift in Sources */,
 				5AD246D3250268E500934848 /* AppDelegate.swift in Sources */,
 				5A26EBCE2508E6D500009B52 /* DataService.swift in Sources */,
+				8800843B257D376B00FED275 /* ArticleVC.swift in Sources */,
 				5A26EBD02508ED3A00009B52 /* News.swift in Sources */,
 				5A36A917250FAAB90067461F /* NewsCell.swift in Sources */,
 				5A42010D2503AAA300F97D67 /* TopNewsCell.swift in Sources */,
