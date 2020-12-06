@@ -16,7 +16,7 @@ extension UIImageView {
         URLSession.shared.dataTask(with: url) {data,_,err in
             DispatchQueue.main.async {
                 if let err = err {
-                    print("Failed to get data from url:", err)
+                    print("Failed to get img from url:", err)
                 }
                 
                 guard let data = data else { return }

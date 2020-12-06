@@ -9,7 +9,7 @@
 import Foundation
 
 
-struct News: Decodable {
+struct News: Codable {
     private(set) public var title: String
     private(set) public var type: String
     private(set) public var img: String?
