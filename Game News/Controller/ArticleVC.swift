@@ -9,7 +9,11 @@
 import UIKit
 
 class ArticleVC: UIViewController {
-
+    
+    @IBOutlet weak var articleStack: ArticleStack!
+    
+    var article: Article = Article(from: JSONDecoder)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -17,7 +21,7 @@ class ArticleVC: UIViewController {
     }
     
     private func initUI() {
-        //Init UI here
+        articleStack.updateView(article: article)
     }
 
 }

@@ -52,12 +52,7 @@ extension NewsVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollec
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "topNewsCell", for: indexPath) as? TopNewsCell {
             cell.updateCell(news: topNews[indexPath.row])
-            
-            if topNews[indexPath.row].img == nil {
-                cell.topNewsImg?.image = nil
-            }else{
-                cell.setImg(news: topNews[indexPath.row])
-            }
+            cell.setImg(news: topNews[indexPath.row])
             
             return cell
         }else {
@@ -79,21 +74,13 @@ extension NewsVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let news = DataService.instance.fetchData()
         
-        if news[indexPath.row].img != nil {
-            if let cell = tableView.dequeueReusableCell(withIdentifier: "newsImgCell", for: indexPath) as? NewsImgCell {
-                cell.updateCell(news: news[indexPath.row])
-                cell.setImg(news: news[indexPath.row])
-                return cell
-            }else {
-                return NewsImgCell()
-            }
-        }else{
-            if let cell = tableView.dequeueReusableCell(withIdentifier: "newsCell", for: indexPath) as? NewsCell {
-                cell.updateCell(news: news[indexPath.row])
-                return cell
-            }else {
-                return NewsCell()
-            }
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "newsImgCell", for: indexPath) as? NewsImgCell
+            {
+            cell.updateCell(news: news[indexPath.row])
+            cell.setImg(news: news[indexPath.row])
+            return cell
+        }else {
+            return NewsImgCell()
         }
     }
 }

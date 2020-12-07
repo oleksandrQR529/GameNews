@@ -193,7 +193,7 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tZq-Hr-zqI">
                                 <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="CF5-7O-F6l">
+                                    <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="CF5-7O-F6l" customClass="ArticleStack" customModule="Game_News" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="274.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VUa-BY-Ddj">
@@ -232,6 +232,11 @@
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                         </subviews>
+                                        <connections>
+                                            <outlet property="articleDescription" destination="HP4-Rr-OKJ" id="GLs-81-nGc"/>
+                                            <outlet property="articleImg" destination="2AO-eM-Iok" id="msB-Je-2E8"/>
+                                            <outlet property="articleTitle" destination="cwd-KC-GW7" id="yuL-oc-uLi"/>
+                                        </connections>
                                     </stackView>
                                 </subviews>
                                 <constraints>
@@ -256,6 +261,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="eP2-D9-dk2"/>
+                    <connections>
+                        <outlet property="articleStack" destination="CF5-7O-F6l" id="B8v-e5-bok"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t4X-9c-Uq5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

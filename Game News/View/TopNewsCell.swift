@@ -22,6 +22,6 @@ class TopNewsCell: UICollectionViewCell {
     }
     
     func setImg(news: News) {
-        topNewsImg?.loadImgFromUrl(urlString: news.img!)
+        topNewsImg?.loadImgFromUrl(urlString: news.img)
     }
 }

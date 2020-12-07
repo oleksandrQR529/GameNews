@@ -22,6 +22,6 @@ class NewsImgCell: UITableViewCell {
     }
     
     func setImg(news: News) {
-        newsImg?.loadImgFromUrl(urlString: news.img!)
+        newsImg?.loadImgFromUrl(urlString: news.img)
     }
 }
