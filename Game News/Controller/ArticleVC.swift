@@ -12,7 +12,7 @@ class ArticleVC: UIViewController {
     
     @IBOutlet weak var articleStack: ArticleStack!
     
-    var article: Article = Article(from: JSONDecoder)
+    var articleID: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +21,13 @@ class ArticleVC: UIViewController {
     }
     
     private func initUI() {
-        articleStack.updateView(article: article)
+        loadData()
+    }
+    
+    private func loadData() {
+        DataService.instance.loadArticle(dataUrl: "http://localhost/news1.php", searchArticle: ["articleID" : articleID!]) { (article) in
+            self.articleStack.updateView(article: article[0])
+        }
     }
 
 }

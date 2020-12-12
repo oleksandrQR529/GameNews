@@ -10,8 +10,8 @@ import Foundation
 
 
 struct Article: Codable {
-    private(set) public var title: String
-    private(set) public var description: String
-    private(set) public var img: String
-    private(set) public var type: String
+    var title: String
+    var description: String
+    var img: String
+    var type: String
 }

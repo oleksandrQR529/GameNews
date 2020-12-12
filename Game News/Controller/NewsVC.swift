@@ -10,69 +10,82 @@ import UIKit
 
 class NewsVC: UIViewController {
     
-    @IBOutlet weak var topNewsCollection: UICollectionView!
     @IBOutlet weak var newsTable: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var newsTypeSegments: UISegmentedControl!
+    @IBOutlet weak var newsNavigationItem: UINavigationItem!
     
-    private var topNews: [News] = []
+    private var request: String?
+    private var news: [News] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         initUI()
-        
-        DataService.instance.loadData(dataUrl: "http://localhost/news.php", view: newsTable)
-        DataService.instance.loadData(dataUrl: "http://localhost/news.php", view: topNewsCollection)
     }
     
-    func initUI() {
-        topNewsCollection.dataSource = self
-        topNewsCollection.delegate = self
+    private func initUI() {
+        loadData()
         
         newsTable.dataSource = self
         newsTable.delegate = self
-        
         newsTable.rowHeight = UITableView.automaticDimension
-    }
-}
-
-extension NewsVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        var topNewsCount = 0
-        for news in DataService.instance.fetchData() {
-            if news.top == "0" {
-            }else {
-                topNewsCount += 1
-                self.topNews.append(news)
-            }
-        }
-        return topNewsCount
+        
+        searchBar.delegate = self
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add article", style: .plain, target: self, action: #selector(addArticleBtnPressed))
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "topNewsCell", for: indexPath) as? TopNewsCell {
-            cell.updateCell(news: topNews[indexPath.row])
-            cell.setImg(news: topNews[indexPath.row])
-            
-            return cell
-        }else {
-            return TopNewsCell()
+    private func loadData() {
+        DataService.instance.loadNews(dataUrl: "http://localhost/news1.php", searchNews: ["newsType" : self.request ?? "allNews"]) { (news) in
+            self.news = news
+            self.newsTable.reloadData()
         }
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.view.frame.width, height: self.view.frame.height)
+    @IBAction func newsTypeChanged(_ sender: Any) {
+        switch newsTypeSegments.titleForSegment(at: newsTypeSegments.selectedSegmentIndex) {
+        case "All News":
+            self.request = "allNews"
+            break
+        case "Top News":
+            self.request = "topNews"
+            break
+        case "PC News":
+            self.request = "pcNews"
+            break
+        case "Mobile News":
+            self.request = "mobileNews"
+            break
+        default:
+            break
+        }
+        loadData()
+    }
+    
+    @objc func addArticleBtnPressed() {
+        //go to add article controller
+    }
+    
+    @IBAction func unwindFromGoalsVC(unwindSegue: UIStoryboardSegue){}
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let articleVC = segue.destination as? ArticleVC {
+            let selectedRow = newsTable.indexPathForSelectedRow?.row
+            articleVC.articleID = news[selectedRow ?? 1].articleID
+        }else if let addArticleVC = segue.description as? AddArticleVC {
+            addArticleVC.articleID = news.count + 1
+        }
     }
 }
 
 extension NewsVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return DataService.instance.fetchData().count
+        return news.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let news = DataService.instance.fetchData()
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "newsImgCell", for: indexPath) as? NewsImgCell
             {
@@ -83,4 +96,41 @@ extension NewsVC: UITableViewDataSource, UITableViewDelegate {
             return NewsImgCell()
         }
     }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let deleteAction = UITableViewRowAction(style: .destructive, title: "DELETE") { (rowAction, indexPath) in
+            //do any actions
+            tableView.deleteSections([indexPath.section], with: .automatic)
+        }
+        
+        deleteAction.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+        
+        return [deleteAction]
+    }
+}
+
+extension NewsVC: UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+        switch searchBar.text {
+        case "All news":
+            self.request = "allNews"
+            break
+        case "Top news":
+            self.request = "topNews"
+            break
+        case "PC news":
+            self.request = "pcNews"
+            break
+        case "Mobile news":
+            self.request = "mobileNews"
+            break
+        default:
+            self.request = searchBar.text
+        }
+        loadData()
+        
+    }
+    
 }
