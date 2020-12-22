@@ -23,17 +23,10 @@ class AddArticleVC: UIViewController {
     }
     
     @IBAction func saveBtnPressed(_ sender: Any) {
-        var article: News?
-        article?.type = typeSegment.titleForSegment(at: typeSegment.selectedSegmentIndex)!
-        article?.top = topSegment.selectedSegmentIndex
-        article?.click_url = articleAuthorField.text ?? "Some author"
-        article?.title = articleTitleField.text ?? " "
-        article?.img = articleImgUrlField.text ?? " "
-        article?.description = articleDescriptionField.text ?? " "
-        article?.articleID = self.articleID;
+        let article: News? = News(title: articleTitleField.text ?? " ", type: typeSegment.titleForSegment(at: typeSegment.selectedSegmentIndex)!, articleID: self.articleID, img: articleImgUrlField.text ?? " ", click_url: articleAuthorField.text ?? "Some author", time: "2020-10-10", top: topSegment.selectedSegmentIndex, description: articleDescriptionField.text ?? " ")
         
         DataService.instance.addArticle(article: article!, requestURL: "http://localhost/news.php") { (isComplete) in
-            //go to news vc
+            // go to news vc
         }
     }
     

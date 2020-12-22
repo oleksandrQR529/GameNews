@@ -75,8 +75,22 @@ class DataService {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
-        let articleAdded: [String : Any] = ["type" : article.type, "top" : article.top, "author" : article.click_url, "title" : article.title, "img" : article.img, "description" : article.description, "articleID" : article.articleID, "addArticle" : "true"]
+        let articleAdded: [String : Any] = ["type" : article.type, "top" : article.top, "author" : article.click_url, "title" : article.title, "img" : article.img, "description" : article.description, "articleID" : article.articleID, "time" : article.time]
         request.httpBody = articleAdded.percentEscaped().data(using: .utf8)
+        
+        URLSession.shared.dataTask(with: request).resume()
+    }
+    
+    func dropArticle(article: News, requestURL urlString: String, completion: (Bool) -> ()) {
+        guard let url = URL(string: urlString) else { return }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        let articleDeleted: [String : Any] = ["title" : article.title, "articleID" : article.articleID, "deleteNews" : "true"]
+        request.httpBody = articleDeleted.percentEscaped().data(using: .utf8)
+        
+        URLSession.shared.dataTask(with: request).resume()
     }
 
 }

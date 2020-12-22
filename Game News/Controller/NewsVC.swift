@@ -64,7 +64,11 @@ class NewsVC: UIViewController {
     }
     
     @objc func addArticleBtnPressed() {
-        //go to add article controller
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "AddArticleVC") as? AddArticleVC
+        nextViewController?.modalPresentationStyle = .fullScreen
+        self.present(nextViewController!, animated:true, completion:nil)
     }
     
     @IBAction func unwindFromGoalsVC(unwindSegue: UIStoryboardSegue){}
@@ -73,7 +77,7 @@ class NewsVC: UIViewController {
         if let articleVC = segue.destination as? ArticleVC {
             let selectedRow = newsTable.indexPathForSelectedRow?.row
             articleVC.articleID = news[selectedRow ?? 1].articleID
-        }else if let addArticleVC = segue.description as? AddArticleVC {
+        }else if let addArticleVC = segue.destination as? AddArticleVC {
             addArticleVC.articleID = news.count + 1
         }
     }
@@ -99,8 +103,12 @@ extension NewsVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let deleteAction = UITableViewRowAction(style: .destructive, title: "DELETE") { (rowAction, indexPath) in
-            //do any actions
-            tableView.deleteSections([indexPath.section], with: .automatic)
+            
+            DataService.instance.dropArticle(article: self.news[indexPath.row], requestURL: "http://localhost/news.php") { (isCompelte) in
+                self.loadData()
+            }
+            
+            tableView.deleteRows(at:[indexPath], with: .automatic)
         }
         
         deleteAction.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
