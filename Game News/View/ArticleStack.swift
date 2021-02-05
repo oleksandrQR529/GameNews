@@ -14,10 +14,10 @@ class ArticleStack: UIStackView {
     @IBOutlet weak var articleTitle: UILabel?
     @IBOutlet weak var articleDescription: UITextView?
     
-    func updateView(article: Article) {
+    func updateView(article: News) {
         articleTitle?.text = article.title
         articleDescription?.text = article.description
-        articleImg?.loadImgFromUrl(urlString: article.img)
+        articleImg?.loadImgFromUrl(urlString: article.img!)
     }
     
 }

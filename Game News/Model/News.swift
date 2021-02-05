@@ -10,12 +10,12 @@ import Foundation
 
 
 struct News: Codable {
-    var title: String
-    var type: String
-    var articleID: Int
-    var img: String
-    var click_url: String
-    var time: String
-    var top: Int
-    var description: String
+    var title: String?
+    var type: String?
+    var articleID: Int?
+    var img: String?
+    var click_url: String?
+    var time: String?
+    var top: Int?
+    var description: String?
 }

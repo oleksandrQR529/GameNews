@@ -25,7 +25,7 @@ class ArticleVC: UIViewController {
     }
     
     private func loadData() {
-        DataService.instance.loadArticle(dataUrl: "http://localhost/news1.php", searchArticle: ["articleID" : articleID!]) { (article) in
+        DataService.instance.loadNews(dataUrl: "http://localhost/news1.php", searchNews: ["articleID" : articleID!]) { (article) in
             self.articleStack.updateView(article: article[0])
         }
     }

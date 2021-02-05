@@ -25,9 +25,7 @@ class AddArticleVC: UIViewController {
     @IBAction func saveBtnPressed(_ sender: Any) {
         let article: News? = News(title: articleTitleField.text ?? " ", type: typeSegment.titleForSegment(at: typeSegment.selectedSegmentIndex)!, articleID: self.articleID, img: articleImgUrlField.text ?? " ", click_url: articleAuthorField.text ?? "Some author", time: "2020-10-10", top: topSegment.selectedSegmentIndex, description: articleDescriptionField.text ?? " ")
         
-        DataService.instance.addArticle(article: article!, requestURL: "http://localhost/news.php") { (isComplete) in
-            // go to news vc
-        }
+        DataService.instance.addArticle(article: article!, requestURL: "http://localhost/news.php")
     }
     
 }

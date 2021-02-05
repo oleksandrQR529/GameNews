@@ -18,10 +18,10 @@ class NewsImgCell: UITableViewCell {
     func updateCell(news: News) {
         newsTitle?.text = news.title
         newsSource?.text = news.click_url
-        newsPublicationDate?.text = "- \(news.time)"
+        newsPublicationDate?.text = "- \(news.time ?? "")"
     }
     
     func setImg(news: News) {
-        newsImg?.loadImgFromUrl(urlString: news.img)
+        newsImg?.loadImgFromUrl(urlString: news.img!)
     }
 }

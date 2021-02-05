@@ -55,7 +55,7 @@ class NewsVC: UIViewController {
             self.request = "pcNews"
             break
         case "Mobile News":
-            self.request = "mobileNews"
+            self.request = "Mobile"
             break
         default:
             break

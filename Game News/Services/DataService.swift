@@ -42,40 +42,13 @@ class DataService {
         }.resume()
     }
     
-    func loadArticle(dataUrl urlString: String, searchArticle: [String : Any], completion: @escaping ([Article]) -> Void) {
+    func addArticle(article: News, requestURL urlString: String) {
         guard let url = URL(string: urlString) else { return }
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
-        request.httpBody = searchArticle.percentEscaped().data(using: .utf8)
-
-        URLSession.shared.dataTask(with: request) { data, _, err in
-            DispatchQueue.main.async {
-                if let err = err {
-                    print("Failed to get data from url:", err)
-                    return
-                }
-                
-                guard let data = data else { return }
-
-                do{
-                    let article = try JSONDecoder().decode([Article].self, from: data)
-                    completion(article)
-                }catch let jsonErr{
-                    print("Failed to decode: ", jsonErr)
-                }
-            }
-        }.resume()
-    }
-    
-    func addArticle(article: News, requestURL urlString: String, completion: (Bool) -> ()) {
-        guard let url = URL(string: urlString) else { return }
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
-        let articleAdded: [String : Any] = ["type" : article.type, "top" : article.top, "author" : article.click_url, "title" : article.title, "img" : article.img, "description" : article.description, "articleID" : article.articleID, "time" : article.time]
+        let articleAdded: [String : Any] = ["type" : article.type!, "top" : article.top!, "author" : article.click_url!, "title" : article.title!, "img" : article.img!, "description" : article.description!, "articleID" : article.articleID!, "time" : article.time!]
         request.httpBody = articleAdded.percentEscaped().data(using: .utf8)
         
         URLSession.shared.dataTask(with: request).resume()
@@ -87,7 +60,7 @@ class DataService {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
-        let articleDeleted: [String : Any] = ["title" : article.title, "articleID" : article.articleID, "deleteNews" : "true"]
+        let articleDeleted: [String : Any] = ["title" : article.title!, "articleID" : article.articleID!, "deleteNews" : "true"]
         request.httpBody = articleDeleted.percentEscaped().data(using: .utf8)
         
         URLSession.shared.dataTask(with: request).resume()
